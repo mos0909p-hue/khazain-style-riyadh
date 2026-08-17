@@ -11,6 +11,21 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 
   ttq.load('D9V6GJBC77U55G1DPTIG');
   ttq.page();
+  // كود تتبع النقر على زر الواتساب والاتصال لتيك توك
+document.addEventListener('DOMContentLoaded', function() {
+  // كل أزرار الواتساب والاتصال
+  var buttons = document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp"], a[href*="tel:"]');
+
+  buttons.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      // حدث Contact هو اللي هيظهر في التيك توك
+      ttq.track('Contact');
+      ttq.track('ClickButton');
+      ttq.track('SubmitForm');
+      console.log('تم تسجيل النقر على الزر - Contact');
+    });
+  });
+});
 }(window, document, 'ttq');
 </script>
 <!-- TikTok Pixel Code End -->
